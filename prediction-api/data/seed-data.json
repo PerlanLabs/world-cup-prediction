@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-06-11T00:00:00.000Z",
+  "sources": [
+    {
+      "id": "fifa-2026-schedule-manual",
+      "name": "FIFA 2026 World Cup schedule manual snapshot",
+      "url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/match-schedule-fixtures-results-teams-stadiums",
+      "retrievedAt": "2026-06-09",
+      "tier": 1,
+      "notes": "Manual seed used until official fixture sync is implemented."
+    }
+  ],
+  "teams": [
+    { "id": "mexico", "slug": "mexico", "name": "墨西哥", "flagCode": "mx" },
+    { "id": "south-africa", "slug": "south-africa", "name": "南非", "flagCode": "za" },
+    { "id": "south-korea", "slug": "south-korea", "name": "韩国", "flagCode": "kr" },
+    { "id": "czech-republic", "slug": "czech-republic", "name": "捷克", "flagCode": "cz" },
+    { "id": "canada", "slug": "canada", "name": "加拿大", "flagCode": "ca" },
+    { "id": "bosnia-and-herzegovina", "slug": "bosnia-and-herzegovina", "name": "波黑", "flagCode": "ba" },
+    { "id": "usa", "slug": "usa", "name": "美国", "flagCode": "us" },
+    { "id": "paraguay", "slug": "paraguay", "name": "巴拉圭", "flagCode": "py" }
+  ],
+  "matches": [
+    {
+      "id": "mexico-south-africa",
+      "date": "2026-06-11",
+      "dateLabel": "6月11日",
+      "kickoffSort": "01:00",
+      "kickoffLocal": "2026-06-11T01:00:00+08:00",
+      "competition": "世界杯",
+      "group": "世界杯 开幕战",
+      "stage": "group",
+      "status": "开幕战",
+      "watch": true,
+      "homeTeamId": "mexico",
+      "awayTeamId": "south-africa",
+      "modelHome": "mexico",
+      "modelAway": "south-africa",
+      "modelVenue": "home",
+      "ui": {
+        "recommendation": "墨西哥优势",
+        "confidence": 71,
+        "homeForm": "近5场 4胜0平1负",
+        "awayForm": "近5场 2胜2平1负",
+        "narrative": "墨西哥整体结构更成熟，能够通过中场控制逐步压制比赛。南非的机会在于反击第一脚质量。"
+      }
+    },
+    {
+      "id": "korea-czechia",
+      "date": "2026-06-11",
+      "dateLabel": "6月11日",
+      "kickoffSort": "04:00",
+      "kickoffLocal": "2026-06-11T04:00:00+08:00",
+      "competition": "世界杯",
+      "group": "世界杯 小组赛",
+      "stage": "group",
+      "status": "未开赛",
+      "watch": true,
+      "homeTeamId": "south-korea",
+      "awayTeamId": "czech-republic",
+      "modelHome": "south-korea",
+      "modelAway": "czech-republic",
+      "modelVenue": "neutral",
+      "ui": {
+        "recommendation": "小比分",
+        "confidence": 66,
+        "homeForm": "赛前信息更新中",
+        "awayForm": "赛前信息更新中",
+        "narrative": "这场胜负差距不大。韩国和捷克的阵容、伤停、天气和首发信息仍在更新中。"
+      }
+    },
+    {
+      "id": "canada-bosnia",
+      "date": "2026-06-12",
+      "dateLabel": "6月12日",
+      "kickoffSort": "01:00",
+      "kickoffLocal": "2026-06-12T01:00:00+08:00",
+      "competition": "世界杯",
+      "group": "世界杯 小组赛",
+      "stage": "group",
+      "status": "未开赛",
+      "watch": false,
+      "homeTeamId": "canada",
+      "awayTeamId": "bosnia-and-herzegovina",
+      "modelHome": "canada",
+      "modelAway": "bosnia-and-herzegovina",
+      "modelVenue": "home",
+      "ui": {
+        "recommendation": "加拿大方向",
+        "confidence": 63,
+        "homeForm": "近5场 2胜1平2负",
+        "awayForm": "赛前信息更新中",
+        "narrative": "加拿大拥有主场因素，整体胜面略高。波黑的阵容和近期状态信息仍在更新中。"
+      }
+    },
+    {
+      "id": "usa-paraguay",
+      "date": "2026-06-12",
+      "dateLabel": "6月12日",
+      "kickoffSort": "02:00",
+      "kickoffLocal": "2026-06-12T02:00:00+08:00",
+      "competition": "世界杯",
+      "group": "世界杯 小组赛",
+      "stage": "group",
+      "status": "未开赛",
+      "watch": true,
+      "homeTeamId": "usa",
+      "awayTeamId": "paraguay",
+      "modelHome": "usa",
+      "modelAway": "paraguay",
+      "modelVenue": "home",
+      "ui": {
+        "recommendation": "主队不败",
+        "confidence": 67,
+        "homeForm": "近5场 3胜1平1负",
+        "awayForm": "近5场 2胜1平2负",
+        "narrative": "美国整体实力占优，控球与进攻效率更高。巴拉圭的主要机会来自快速反击与定位球威胁。"
+      }
+    }
+  ],
+  "predictions": [],
+  "modelRuns": []
+}

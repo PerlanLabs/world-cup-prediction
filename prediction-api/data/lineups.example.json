@@ -1,0 +1,40 @@
+{
+  "source": {
+    "id": "manual-reviewed-expected-lineups",
+    "name": "Manual reviewed expected lineups",
+    "url": "https://example.com/free-public-source-or-review-note",
+    "retrievedAt": "2026-06-12T10:00:00.000Z",
+    "access": "free_reviewed",
+    "notes": "Example schema only. Replace example players with sourced official or reviewed expected lineup data before importing."
+  },
+  "lineups": [
+    {
+      "matchId": "mexico-south-africa",
+      "expected": {
+        "confidence": "medium",
+        "reviewedAt": "2026-06-12T10:05:00.000Z",
+        "note": "Example expected lineup. Do not import as real data.",
+        "home": {
+          "formation": "4-3-3",
+          "starters": [
+            { "name": "Example Home GK", "position": "GK", "shirtNumber": "1" },
+            { "name": "Example Home FW", "position": "FW", "shirtNumber": "9" }
+          ],
+          "substitutes": [],
+          "unavailable": []
+        },
+        "away": {
+          "formation": "4-2-3-1",
+          "starters": [
+            { "name": "Example Away GK", "position": "GK", "shirtNumber": "1" },
+            { "name": "Example Away FW", "position": "FW", "shirtNumber": "10" }
+          ],
+          "substitutes": [],
+          "unavailable": [
+            { "name": "Example Doubtful Player", "note": "Example absence note" }
+          ]
+        }
+      }
+    }
+  ]
+}

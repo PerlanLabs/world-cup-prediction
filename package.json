@@ -1,0 +1,37 @@
+{
+  "name": "world-cup-prediction",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "build": "npm --prefix world-cup-command-center run build",
+    "start": "node prediction-api/server.mjs",
+    "dev:live": "node scripts/dev-live.mjs",
+    "test": "npm --prefix world-cup-command-center run test:backend && npm --prefix world-cup-command-center run test:frontend && npm run test:betting",
+    "test:betting": "node --test scripts/betting-analysis/*.test.mjs",
+    "predict:match": "node world-cup-2026-prediction-model/predict.mjs",
+    "predict:match:base": "node world-cup-2026-prediction-model/predict.mjs --ratings=base",
+    "predict:match:current": "node world-cup-2026-prediction-model/predict.mjs --ratings=current",
+    "sync:local": "node prediction-api/watch-match-updates.mjs --once --json",
+    "watch:match-updates": "node prediction-api/watch-match-updates.mjs",
+    "refresh:model": "node prediction-api/sync-model-ratings.mjs",
+    "sync:model-ratings": "node prediction-api/sync-model-ratings.mjs",
+    "sync:upstream-track-record": "node prediction-api/sync-upstream-track-record.mjs",
+    "sync:polymarket-match-markets": "node prediction-api/sync-polymarket-match-markets.mjs",
+    "import:polymarket-match-markets": "node prediction-api/import-polymarket-match-markets.mjs",
+    "sync:ai-analyses": "node prediction-api/sync-ai-analyses.mjs",
+    "sanitize:ai-analyses": "node prediction-api/sanitize-ai-analyses.mjs",
+    "pnl:import": "node prediction-api/pnl-import.mjs",
+    "pnl:import-inbox": "node prediction-api/pnl-import-inbox.mjs",
+    "pnl:settle": "node prediction-api/pnl-settle.mjs",
+    "pnl:update": "node prediction-api/pnl-update.mjs",
+    "model:review": "node prediction-api/model-review.mjs",
+    "betting:analyze": "node scripts/betting-analysis/analyze-match.mjs",
+    "polymarket:radar": "node scripts/betting-analysis/polymarket-market-radar.mjs",
+    "polymarket:movement": "node scripts/betting-analysis/polymarket-market-movement.mjs",
+    "polymarket:backtest": "node scripts/betting-analysis/polymarket-signal-backtest.mjs"
+  }
+}

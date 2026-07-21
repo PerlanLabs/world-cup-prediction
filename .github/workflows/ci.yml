@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source and model submodule
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Use Node.js 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: world-cup-command-center/package-lock.json
+
+      - name: Install frontend dependencies
+        run: npm --prefix world-cup-command-center ci
+
+      - name: Test
+        run: npm test
+
+      - name: Build
+        run: npm run build
+
+      - name: Audit dependencies
+        run: npm --prefix world-cup-command-center audit --audit-level=high

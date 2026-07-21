@@ -1,0 +1,58 @@
+# Dependencies and build output
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+**/.npm-cache/
+.npmrc
+
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Runtime logs, databases, caches, and generated API data
+*.log
+*.err.log
+*.db
+*.db-*
+*.sqlite
+*.sqlite-*
+prediction-api/data/backend-store.json
+prediction-api/data/official-results.generated.json
+prediction-api/data/elo-calibrated.current.json
+prediction-api/data/lineups.local.json
+prediction-api/data/*.local.json
+prediction-api/data/polymarket-movement/
+prediction-api/data/polymarket-backtest/
+
+# Optional local PaperTrader checkout and Python runtime
+tools/polymarket-paper-trader/
+**/.venv/
+**/.pytest_cache/
+**/__pycache__/
+**/*.egg-info/
+
+# Private research, wallet/P&L records, and generated artifacts
+output/
+_tmp_polymarket/
+.playwright-cli/
+douyin-downloads/
+盈亏分析/
+新对话启动包.md
+20??-??-??_*_betting-advice-card*.html
+20??-??-??_*_live-position-review*.html
+20??-??-??_*_polymarket-analysis*.md
+20??-??-??_*_strategy-card*.html
+20??-??-??_*.html
+
+# Archives and operating-system files
+*.rar
+*.zip
+*.7z
+.DS_Store
+Thumbs.db

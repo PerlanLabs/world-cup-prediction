@@ -1,0 +1,4 @@
+[submodule "world-cup-2026-prediction-model"]
+	path = world-cup-2026-prediction-model
+	url = https://github.com/PerlanLabs/world-cup-2026-prediction-model.git
+	branch = codex/world-cup-coverage
