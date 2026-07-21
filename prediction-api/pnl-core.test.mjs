@@ -3,7 +3,6 @@ import { test } from "node:test";
 import { mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { getStore } from "./store.mjs";
 import { buildAcceptedBets, buildManualQatarAdvice, enrichAdviceWithSchedule, parseAdviceHtmlFile, settleAcceptedBets, writeAggregateReports } from "./pnl-core.mjs";
 import { writeSyntheticAdviceCard } from "./test-advice-fixture.mjs";
 
@@ -85,7 +84,7 @@ test("parses UTF-8 stake-card advice and maps DR Congo schedule alias", () => {
         },
       ],
     }),
-    getStore().matches,
+    [scheduleMatch("portugal-congo-dr", "2026-06-18", "portugal", "congo-dr")],
   );
   const accepted = buildAcceptedBets(advice, { strategyPolicy: "hedged" });
 
@@ -141,7 +140,7 @@ test("parses inline card main strategy and honors main policy", () => {
         ],
       }],
     }),
-    getStore().matches,
+    [scheduleMatch("czech-republic-south-africa", "2026-06-19", "czech-republic", "south-africa")],
   );
   const accepted = buildAcceptedBets(advice, { strategyPolicy: "main" });
 
@@ -181,7 +180,7 @@ test("maps Bosnia alias and imports hedged inline-card strategy", () => {
       }],
       scoreRows: [{ score: "0-0", pnl: -4 }],
     }),
-    getStore().matches,
+    [scheduleMatch("switzerland-bosnia-and-herzegovina", "2026-06-19", "switzerland", "bosnia-and-herzegovina")],
   );
   const accepted = buildAcceptedBets(advice, { strategyPolicy: "hedged" });
 
@@ -218,7 +217,7 @@ test("does not treat Chinese team-name 大 as over in team totals", () => {
       }],
       scoreRows: [{ score: "3-0", pnl: -80 }],
     }),
-    getStore().matches,
+    [scheduleMatch("canada-qatar", "2026-06-19", "canada", "qatar")],
   );
   const accepted = buildAcceptedBets(advice, { strategyPolicy: "hedged" });
 
@@ -244,6 +243,10 @@ function parseSyntheticAdvice(options) {
 
 function bet(market, stake, price = null) {
   return { market, stake, price };
+}
+
+function scheduleMatch(id, date, homeTeamId, awayTeamId) {
+  return { id, date, homeTeamId, awayTeamId };
 }
 
 test("imports manual Qatar screenshot advice and settles by score", () => {
