@@ -3,16 +3,25 @@ import { copyFileSync, existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync,
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import { test } from "node:test";
-import { fileURLToPath } from "node:url";
 import { importInbox } from "./pnl-inbox.mjs";
-
-const repoRoot = dirname(dirname(fileURLToPath(import.meta.url)));
+import { writeSyntheticAdviceCard } from "./test-advice-fixture.mjs";
 
 test("imports an HTML advice card from the P&L inbox and skips duplicate content", () => {
   const root = mkdtempSync(join(tmpdir(), "pnl-inbox-"));
   try {
     const inboxHtml = join(root, "_inbox", "html");
-    const source = join(repoRoot, "2026-06-14_05-52-11_brazil-vs-morocco_betting-advice-card.html");
+    const source = writeSyntheticAdviceCard(join(root, "fixtures"), {
+      fileName: "2026-06-14_05-52-11_brazil-vs-morocco_betting-advice-card.html",
+      homeName: "Brazil",
+      awayName: "Morocco",
+      strategies: [{
+        name: "主推荐组合",
+        bets: [
+          { market: "Morocco Over 0.5", stake: 60, price: 0.565 },
+          { market: "Brazil Win", stake: 40, price: 0.6 },
+        ],
+      }],
+    });
     const firstDrop = join(inboxHtml, "2026-06-14_05-52-11_brazil-vs-morocco_betting-advice-card.html");
     mkdirSync(inboxHtml, { recursive: true });
     copyFileSync(source, firstDrop);
